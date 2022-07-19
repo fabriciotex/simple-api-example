@@ -24,3 +24,17 @@ app.route("/users/:id").get((req, res) => {
 
   user ? res.json(user) : res.json(`User not found.`);
 });
+
+// create new user
+app.route("/users").post((req, res) => {
+  const newId = users[users.length - 1].id + 1;
+  const newUser = {
+    id: newId,
+    name: req.body.name,
+    avatar_url: req.body.avatar_url,
+    location: req.body.location,
+  };
+  users.push(newUser);
+
+  res.json(`User ${newUser.name} created successfully!`);
+});
