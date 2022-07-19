@@ -2,10 +2,10 @@
 
 This project is to run a simple RESTful API in Node.js for studying purposes.
 
-- Install and Run[#install-and-run]
-- Tech Stack[#tech-stack]
-- License[#license]
-- Author[#author]
+- [Install and Run](#install-and-run)
+- [Tech Stack](#tech-stack)
+- [License](#license)
+- [Author](#author)
 
 ## Install and Run
 
