@@ -39,6 +39,29 @@ app.route("/users").post((req, res) => {
   res.json(`User ${newUser.name} created successfully!`);
 });
 
+// update user
+app.route("/users/:id").put((req, res) => {
+  const userId = req.params.id;
+  const userIndex = users.findIndex(
+    (user) => Number(user.id) === Number(userId)
+  );
+
+  if (userIndex === -1) {
+    return res.json(`User not found.`);
+  }
+
+  const updatedUser = {
+    ...users[userIndex],
+    name: req.body.name,
+    avatar_url: req.body.avatar_url,
+    location: req.body.location,
+  };
+
+  users[userIndex] = updatedUser;
+
+  res.json(`User ${userId} updated successfully`);
+});
+
 // delete user
 app.route("/users/:id").delete((req, res) => {
   const userId = req.params.id;
