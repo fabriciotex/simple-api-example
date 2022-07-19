@@ -38,3 +38,19 @@ app.route("/users").post((req, res) => {
 
   res.json(`User ${newUser.name} created successfully!`);
 });
+
+// delete user
+app.route("/users/:id").delete((req, res) => {
+  const userId = req.params.id;
+  const userIndex = users.findIndex(
+    (user) => Number(user.id) === Number(userId)
+  );
+
+  if (userIndex === -1) {
+    return res.json(`User not found.`);
+  }
+
+  users.splice(userIndex, 1);
+
+  res.json(`User ${userId} deleted successfully!`);
+});
