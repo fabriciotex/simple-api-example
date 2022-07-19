@@ -1,5 +1,6 @@
-// import express
+// import express && cors
 const express = require("express");
+const cors = require("cors");
 
 // import users array
 const users = require("./users");
@@ -11,8 +12,9 @@ const app = express();
 const port = "5500";
 app.listen(port, () => console.log(`Server running on port ${port}...`));
 
-// enable JSON middleware
+// enable JSON && cors middleware
 app.use(express.json());
+app.use(cors());
 
 // get all users
 app.route("/users").get((req, res) => res.json(users));
